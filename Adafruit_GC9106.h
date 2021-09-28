@@ -102,44 +102,45 @@
 /// Subclass of SPITFT for GC9106 displays (lots in common!)
 class Adafruit_GC9106 : public Adafruit_SPITFT {
 public:
-
-/**************************************************************************/
-/*!
-    @brief  Instantiate GC9106 driver with software SPI
-    @param  cs    Chip select pin #
-    @param  dc    Data/Command pin #
-    @param  mosi  SPI MOSI pin #
-    @param  sclk  SPI Clock pin #
-    @param  rst   Reset pin # (optional, pass -1 if unused)
-    @param  miso  SPI MISO pin # (optional, pass -1 if unused)
-*/
-/**************************************************************************/
+  /**************************************************************************/
+  /*!
+      @brief  Instantiate GC9106 driver with software SPI
+      @param  cs    Chip select pin #
+      @param  dc    Data/Command pin #
+      @param  mosi  SPI MOSI pin #
+      @param  sclk  SPI Clock pin #
+      @param  rst   Reset pin # (optional, pass -1 if unused)
+      @param  miso  SPI MISO pin # (optional, pass -1 if unused)
+  */
+  /**************************************************************************/
   Adafruit_GC9106(int8_t cs, int8_t dc, int8_t mosi, int8_t sclk, int8_t rst)
-    : Adafruit_SPITFT(GC9106_TFTWIDTH, GC9106_TFTHEIGHT, cs, dc, mosi, sclk, rst, -1) {}
+      : Adafruit_SPITFT(GC9106_TFTWIDTH, GC9106_TFTHEIGHT, cs, dc, mosi, sclk,
+                        rst, -1) {}
 
-/**************************************************************************/
-/*!
-    @brief  Instantiate GC9106 driver with hardware SPI
-    @param  cs    Chip select pin #
-    @param  dc    Data/Command pin #
-    @param  rst   Reset pin # (optional, pass -1 if unused)
-*/
-/**************************************************************************/
+  /**************************************************************************/
+  /*!
+      @brief  Instantiate GC9106 driver with hardware SPI
+      @param  cs    Chip select pin #
+      @param  dc    Data/Command pin #
+      @param  rst   Reset pin # (optional, pass -1 if unused)
+  */
+  /**************************************************************************/
   Adafruit_GC9106(int8_t cs, int8_t dc, int8_t rst)
-    : Adafruit_SPITFT(GC9106_TFTWIDTH, GC9106_TFTHEIGHT, cs, dc, rst) {}
+      : Adafruit_SPITFT(GC9106_TFTWIDTH, GC9106_TFTHEIGHT, cs, dc, rst) {}
 
 #if !defined(ESP8266)
-/**************************************************************************/
-/*!
-    @brief  Instantiate GC9106 driver with selectable hardware SPI
-    @param  spiClass A pointer to an SPI device to use (e.g. &SPI1)
-    @param  cs    Chip select pin #
-    @param  dc    Data/Command pin #
-    @param  rst   Reset pin # (optional, pass -1 if unused)
-*/
-/**************************************************************************/
+  /**************************************************************************/
+  /*!
+      @brief  Instantiate GC9106 driver with selectable hardware SPI
+      @param  spiClass A pointer to an SPI device to use (e.g. &SPI1)
+      @param  cs    Chip select pin #
+      @param  dc    Data/Command pin #
+      @param  rst   Reset pin # (optional, pass -1 if unused)
+  */
+  /**************************************************************************/
   Adafruit_GC9106(SPIClass *spiClass, int8_t cs, int8_t dc, int8_t rst)
-    : Adafruit_SPITFT(GC9106_TFTWIDTH, GC9106_TFTHEIGHT, spiClass, cs, dc, rst) {}
+      : Adafruit_SPITFT(GC9106_TFTWIDTH, GC9106_TFTHEIGHT, spiClass, cs, dc,
+                        rst) {}
 #endif // end !ESP8266
 
   void init(void);
